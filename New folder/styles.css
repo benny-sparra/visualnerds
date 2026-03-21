@@ -499,10 +499,9 @@ nav.scrolled {
   width: 3px;
   height: 0.85em;
   background: var(--purple-bright);
-  margin-left: 4px;
+  margin-left: 0;
   vertical-align: middle;
   animation: blink 0.9s infinite;
-  -webkit-text-fill-color: var(--purple-bright);
 }
 
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }

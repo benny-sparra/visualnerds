@@ -153,26 +153,6 @@ if (heroCanvas) {
   nn.start();
 }
 
-// ── TYPEWRITER ─────────────────────────────────────────────────
-const typer = document.querySelector('.typewriter');
-if (typer) {
-  const words = ['AI Films', 'Visual Stories', 'Future Cinema', 'Neural Narratives', 'Digital Dreams'];
-  let wi = 0, ci = 0, deleting = false;
-  const speed = { type: 90, delete: 50, pause: 2000 };
-
-  function tick() {
-    const word = words[wi];
-    if (!deleting) {
-      typer.textContent = word.slice(0, ++ci);
-      if (ci === word.length) { deleting = true; setTimeout(tick, speed.pause); return; }
-    } else {
-      typer.textContent = word.slice(0, --ci);
-      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
-    }
-    setTimeout(tick, deleting ? speed.delete : speed.type);
-  }
-  tick();
-}
 
 // ── COUNTER ANIMATION ──────────────────────────────────────────
 function animateCounter(el) {
