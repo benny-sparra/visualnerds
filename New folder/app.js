@@ -2,34 +2,6 @@
    VISUAL NERDS — Main App JS
 ============================== */
 
-// ── CUSTOM CURSOR ──────────────────────────────────────────────
-const cursor = document.querySelector('.cursor');
-const ring = document.querySelector('.cursor-ring');
-
-if (cursor && ring) {
-  let mx = -100, my = -100, rx = -100, ry = -100;
-  const ease = 0.12;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-
-  (function animRing() {
-    rx += (mx - rx) * ease;
-    ry += (my - ry) * ease;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  document.querySelectorAll('a, button, .filter-btn, .portfolio-card, .work-item, .card, .team-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
-    el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
-  });
-}
-
 // ── NAV SCROLL ─────────────────────────────────────────────────
 const nav = document.querySelector('nav');
 if (nav) {
