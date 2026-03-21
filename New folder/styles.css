@@ -686,7 +686,7 @@ nav.scrolled {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 
 .work-item:nth-child(1) { grid-column: span 7; }
@@ -1231,7 +1231,7 @@ footer {
   background: var(--surface);
   border: 1px solid var(--border);
   transition: var(--transition);
-  cursor: none;
+  cursor: pointer;
 }
 
 .filter-btn:hover,
@@ -1253,7 +1253,7 @@ footer {
   background: var(--surface);
   border: 1px solid var(--border);
   transition: var(--transition);
-  cursor: none;
+  cursor: pointer;
 }
 
 .portfolio-card:hover {
