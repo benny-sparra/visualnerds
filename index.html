@@ -10,6 +10,89 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%237c3aed'/%3E%3Ctext x='50%25' y='55%25' font-family='sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle' dominant-baseline='middle'%3EVN%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ── HERO PERSPECTIVE GRID ─── */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124,58,237,0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6,182,212,0.05) 1px, transparent 1px);
+      background-size: 55px 55px;
+      transform: perspective(550px) rotateX(32deg) scaleX(1.15);
+      transform-origin: center 90%;
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 40%, transparent 65%);
+      mask-image: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 40%, transparent 65%);
+      animation: grid-drift 10s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes grid-drift {
+      from { background-position: 0 0; }
+      to   { background-position: 0 55px; }
+    }
+
+    /* ── FLOATING DATA FRAGMENTS ─── */
+    .hero-fragments {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .hero-fragments span {
+      position: absolute;
+      bottom: -30px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(124,58,237,0.25);
+      animation: frag-rise linear infinite;
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .hero-fragments span:nth-child(even) { color: rgba(6,182,212,0.2); }
+    @keyframes frag-rise {
+      0%   { transform: translateY(0);      opacity: 0; }
+      8%   { opacity: 1; }
+      88%  { opacity: 0.45; }
+      100% { transform: translateY(-108vh); opacity: 0; }
+    }
+
+    /* ── HERO CENTRE PULSE ─── */
+    .hero-pulse-ring {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+      animation: ring-breathe 7s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes ring-breathe {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.18); }
+    }
+
+    /* ── SCAN LINE OVERLAY ─── */
+    .hero-scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.04) 2px,
+        rgba(0,0,0,0.04) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -51,6 +134,23 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
+
+  <div class="hero-grid"></div>
+  <div class="hero-pulse-ring"></div>
+  <div class="hero-scanlines"></div>
+  <div class="hero-fragments" aria-hidden="true">
+    <span style="left:4%;animation-duration:22s;animation-delay:0s;">01101100</span>
+    <span style="left:11%;animation-duration:28s;animation-delay:4s;">NEURAL</span>
+    <span style="left:19%;animation-duration:20s;animation-delay:8s;">∇θ=0.001</span>
+    <span style="left:28%;animation-duration:25s;animation-delay:1s;">010011</span>
+    <span style="left:37%;animation-duration:18s;animation-delay:6s;">FRAME_24</span>
+    <span style="left:47%;animation-duration:30s;animation-delay:11s;">∫f(x)dx</span>
+    <span style="left:57%;animation-duration:23s;animation-delay:3s;">DIFFUSE</span>
+    <span style="left:66%;animation-duration:19s;animation-delay:9s;">λ=1e-5</span>
+    <span style="left:75%;animation-duration:26s;animation-delay:5s;">RENDER</span>
+    <span style="left:84%;animation-duration:21s;animation-delay:7s;">ReLU</span>
+    <span style="left:92%;animation-duration:24s;animation-delay:2s;">01110011</span>
+  </div>
 
   <div class="hero-content">
     <div class="hero-eyebrow">
@@ -107,7 +207,7 @@
     <p class="cta-sub reveal reveal-delay-2">Your vision deserves visuals that have never existed before. Let's create them together.</p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal reveal-delay-3">
       <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
-      <a href="mailto:support@visualnerds.com" class="btn btn-outline btn-lg">support@visualnerds.com</a>
+      <a href="#" data-email="text" class="btn btn-outline btn-lg"></a>
     </div>
     <p style="font-size:0.75rem;color:var(--text-3);margin-top:12px;text-align:center;">By emailing us you agree to our <a href="terms.html" style="color:var(--text-3);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
   </div>

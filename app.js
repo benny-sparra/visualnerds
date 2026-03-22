@@ -252,6 +252,17 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
   });
 });
 
+// ── EMAIL DECODE (base64 anti-scrape) ──────────────────────────
+// Email is stored encoded to prevent automated harvesting.
+// Decoded at runtime by the browser — no server needed.
+(function() {
+  var _e = atob('c3VwcG9ydEB2aXN1YWxuZXJkcy5jb20=');
+  document.querySelectorAll('a[data-email]').forEach(function(el) {
+    el.href = 'mailto:' + _e;
+    if (el.getAttribute('data-email') === 'text') el.textContent = _e;
+  });
+})();
+
 // ── SMOOTH PAGE TRANSITION ─────────────────────────────────────
 document.querySelectorAll('a[href]').forEach(a => {
   const href = a.getAttribute('href');
