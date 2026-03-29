@@ -115,13 +115,13 @@ input, textarea, select { font-family: inherit; }
 /* ── Nav ── */
 .vn-nav {
   height: var(--nav-h);
-  background: #1a1a1a;
+  background: #121214;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .vn-nav.scrolled {
-  background: #1a1a1a !important;
+  background: #121214 !important;
   border-bottom-color: var(--border) !important;
 }
 
@@ -132,7 +132,7 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 991.98px) {
   .vn-nav .navbar-collapse.show,
   .vn-nav .navbar-collapse.collapsing {
-    background: #1a1a1a !important;
+    background: #121214 !important;
     border-top: 1px solid rgba(255,255,255,0.08);
     padding: 16px 24px 20px;
     margin: 0 -16px;
@@ -142,13 +142,13 @@ input, textarea, select { font-family: inherit; }
 nav:not(.navbar) {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h); z-index: 1000;
-  background: #1a1a1a;
+  background: #121214;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 nav:not(.navbar).scrolled {
-  background: #1a1a1a;
+  background: #121214;
   border-bottom-color: var(--border);
 }
 
@@ -330,7 +330,6 @@ nav:not(.navbar).scrolled {
 .btn-outline {
   border: 1.5px solid var(--border-accent);
   color: var(--text);
-  backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover { border-color: var(--pink); background: var(--pink-pale); }
@@ -493,7 +492,6 @@ nav:not(.navbar).scrolled {
   font-weight: 700;
   color: var(--text-2);
   margin-bottom: 32px;
-  backdrop-filter: blur(10px);
 }
 
 .hero-eyebrow .dot {
@@ -1135,8 +1133,6 @@ footer {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: 1.5px solid rgba(255,255,255,0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
@@ -1732,8 +1728,6 @@ textarea.vn-input:focus {
   position: absolute;
   inset: 0;
   background: rgba(10,10,11,0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .vn-modal__content {
@@ -1781,7 +1775,7 @@ textarea.vn-input:focus {
 .pg-header {
   padding: calc(var(--nav-h) + 80px) 40px 80px;
   border-bottom: 1px solid var(--border);
-  background: #1a1a1a;
+  background: #121214;
 }
 
 .pg-header__inner { max-width: 800px; }
