@@ -124,15 +124,14 @@ nav.scrolled {
 
 /* New brand nav logo */
 .nav-logo {
-  font-family: 'Syne', 'Space Grotesk', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
-  color: var(--text);
   display: flex;
   align-items: center;
-  gap: 0;
-  text-transform: uppercase;
+}
+
+.nav-logo__img {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
 .nav-dot {
@@ -879,7 +878,8 @@ footer {
   min-height: 600px;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Background image area — client replaces placeholder */
@@ -914,32 +914,32 @@ footer {
   position: relative;
   z-index: 2;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: flex-end;
-  padding: 0 40px 60px;
-  gap: 20px;
-}
-
-/* Left / right brand text */
-.vn-hero__brand-left,
-.vn-hero__brand-right {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  line-height: 0.9;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 32px;
+  padding: 0 40px;
 }
 
-.vn-hero__brand-right { align-items: flex-end; text-align: right; }
+/* Centered brand title */
+.vn-hero__brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0.88;
+}
 
-.vn-hero__brand-left span,
-.vn-hero__brand-right span {
+.vn-hero__brand-center span {
   font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: clamp(4rem, 10vw, 9rem);
+  letter-spacing: 0.04em;
   color: white;
   display: block;
+  font-stretch: normal;
 }
 
 /* Center CTA button */
@@ -947,8 +947,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 8px;
+  justify-content: center;
 }
 
 .vn-hero__cta {
@@ -1352,11 +1351,14 @@ footer {
 }
 
 .vn-footer__logo {
-  font-family: 'Syne', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--text);
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo__img {
+  height: 64px;
+  width: auto;
+  display: block;
 }
 
 .vn-footer__tagline {
