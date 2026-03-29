@@ -112,58 +112,43 @@ input, textarea, select { font-family: inherit; }
 /* ==============================
    NAVIGATION — Bootstrap navbar
 ============================== */
-/* ── Always-on adaptive blur nav ── */
+/* ── Nav ── */
 .vn-nav {
   height: var(--nav-h);
-  /* subtle base layer so it's always readable */
-  background: rgba(10,10,11,0.25);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: #1a1a1a;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Darken slightly once the user scrolls down */
 .vn-nav.scrolled {
-  background: rgba(10,10,11,0.72) !important;
-  backdrop-filter: blur(28px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  background: #1a1a1a !important;
   border-bottom-color: var(--border) !important;
 }
 
-/* Bootstrap collapse panel — must also be transparent so no black box */
 .vn-nav .navbar-collapse {
   background: transparent !important;
 }
 
-/* On mobile the collapse drops down — give it the same blur */
 @media (max-width: 991.98px) {
   .vn-nav .navbar-collapse.show,
   .vn-nav .navbar-collapse.collapsing {
-    background: rgba(10,10,11,0.88) !important;
-    backdrop-filter: blur(28px) !important;
-    -webkit-backdrop-filter: blur(28px) !important;
+    background: #1a1a1a !important;
     border-top: 1px solid rgba(255,255,255,0.08);
     padding: 16px 24px 20px;
     margin: 0 -16px;
   }
 }
 
-/* Keep legacy plain <nav> working on sub-pages not yet converted */
 nav:not(.navbar) {
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h); z-index: 1000;
-  background: rgba(10,10,11,0.25);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: #1a1a1a;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 nav:not(.navbar).scrolled {
-  background: rgba(10,10,11,0.72);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  background: #1a1a1a;
   border-bottom-color: var(--border);
 }
 
@@ -177,10 +162,9 @@ nav:not(.navbar).scrolled {
   height: 52px;
   width: auto;
   display: block;
-  /* Clip white/grey bands baked into the PNG top and bottom */
-  clip-path: inset(18% 0 18% 0);
-  /* Compensate for clip so the visible logo stays same visual size */
-  transform: scaleY(1.45);
+  /* Clip grey border baked into all four sides of the PNG */
+  clip-path: inset(18% 12% 18% 12%);
+  transform: scale(1.45);
   transform-origin: center center;
 }
 
@@ -1501,13 +1485,11 @@ footer {
 
 .vn-contact__headline {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-size: clamp(1.8rem, 2.4vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.0;
   margin-bottom: 24px;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .vn-contact__sub {
@@ -1799,6 +1781,7 @@ textarea.vn-input:focus {
 .pg-header {
   padding: calc(var(--nav-h) + 80px) 40px 80px;
   border-bottom: 1px solid var(--border);
+  background: #1a1a1a;
 }
 
 .pg-header__inner { max-width: 800px; }
