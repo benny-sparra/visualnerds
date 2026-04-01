@@ -94,7 +94,7 @@
     <div class="vn-section__label">
       <span class="vn-num">01</span> REEL
     </div>
-    <div class="vn-reel__placeholder" id="reelPlay" data-vimeo="">
+    <div class="vn-reel__placeholder" id="reelPlay" data-vimeo="1178595422" data-vimeo-h="ea450deca0">
       <div class="vn-reel__play">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
           <circle cx="28" cy="28" r="27" stroke="white" stroke-width="1.5" opacity="0.5"/>
@@ -102,7 +102,7 @@
         </svg>
       </div>
       <p class="vn-reel__label">WATCH REEL</p>
-      <p class="vn-reel__sub">VISUAL NERDS — AI &amp; VFX SHOWREEL 2025</p>
+      <p class="vn-reel__sub">VISUAL NERDS — AI &amp; VFX SHOWREEL 2026</p>
     </div>
   </div>
 </section>
@@ -261,14 +261,15 @@
   var modal = document.getElementById('videoModal');
   var embed = document.getElementById('modalEmbed');
 
-  function openModal(vimeoId) {
+  function openModal(vimeoId, vimeoH) {
     if (!vimeoId) return;
-    embed.innerHTML =
-      '<iframe src="https://player.vimeo.com/video/' + vimeoId +
-      '?autoplay=1&title=0&byline=0&portrait=0" width="100%" height="100%"' +
-      ' frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    var hashParam = vimeoH ? '&h=' + vimeoH : '';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    embed.innerHTML =
+      '<iframe src="https://player.vimeo.com/video/' + vimeoId +
+      '?autoplay=1&muted=0&title=0&byline=0&portrait=0' + hashParam + '" width="100%" height="100%"' +
+      ' frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
   }
 
   function closeModal() {
@@ -278,7 +279,21 @@
   }
 
   var reelEl = document.getElementById('reelPlay');
-  if (reelEl) reelEl.addEventListener('click', function () { openModal(this.dataset.vimeo); });
+  if (reelEl) reelEl.addEventListener('click', function () { openModal(this.dataset.vimeo, this.dataset.vimeoH); });
+
+  // ── HERO "WATCH THE REEL" → scroll to reel section then auto-play inline ──
+  var heroCta = document.querySelector('.vn-hero__cta[href="#reel"]');
+  if (heroCta) {
+    heroCta.addEventListener('click', function (e) {
+      e.preventDefault();
+      var reelSection = document.getElementById('reel');
+      reelSection.scrollIntoView({ behavior: 'smooth' });
+      // After scroll completes, trigger the reel play
+      setTimeout(function () {
+        if (reelEl) reelEl.click();
+      }, 800);
+    });
+  }
 
   document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('modalBackdrop').addEventListener('click', closeModal);

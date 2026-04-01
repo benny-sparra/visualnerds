@@ -1642,7 +1642,7 @@ textarea.vn-input:focus {
 
 .vn-footer__tagline {
   font-size: 0.9rem;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.85);
   line-height: 1.6;
 }
 
@@ -1657,7 +1657,7 @@ textarea.vn-input:focus {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.85);
   text-transform: uppercase;
   transition: color var(--transition);
 }
@@ -1673,11 +1673,11 @@ textarea.vn-input:focus {
 
 .vn-social {
   width: 44px; height: 44px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.85);
   transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
@@ -1692,17 +1692,17 @@ textarea.vn-input:focus {
   align-items: center;
   justify-content: space-between;
   padding-top: 24px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.15);
   font-family: 'Space Mono', monospace;
   font-size: 0.65rem;
   letter-spacing: 0.08em;
-  color: var(--text-3);
+  color: rgba(255,255,255,0.85);
 }
 
 .vn-footer__legal { display: flex; gap: 20px; }
 
 .vn-footer__legal a {
-  color: var(--text-3);
+  color: rgba(255,255,255,0.85);
   transition: color var(--transition);
 }
 
